@@ -16,8 +16,8 @@ router.get(
 router.get(
   "/google/callback",
   passport.authenticate("google", {
-    successRedirect: "http://localhost:5173/chats",
-    failureRedirect: "http://localhost:5173/",
+    successRedirect: process.env.CLIENT_URL + "/chats",
+    failureRedirect: process.env.CLIENT_URL,
   })
 );
 
@@ -28,8 +28,8 @@ router.get(
 router.get(
   "/facebook/callback",
   passport.authenticate("facebook", {
-    successRedirect: "http://localhost:5173/chats",
-    failureRedirect: "http://localhost:5173/",
+    successRedirect: process.env.CLIENT_URL + "/chats",
+    failureRedirect: process.env.CLIENT_URL,
   })
 );
 
