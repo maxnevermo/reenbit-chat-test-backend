@@ -26,6 +26,7 @@ const io = new Server(server, {
 });
 setupSocket(io);
 
+app.use(express.json());
 app.use(
   session({
     secret: "secret",
@@ -37,9 +38,6 @@ app.use(
     },
   })
 );
-
-app.use(express.json());
-app.use(session({ secret: "secret", resave: false, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
