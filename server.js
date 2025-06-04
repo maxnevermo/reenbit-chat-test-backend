@@ -27,9 +27,14 @@ const io = new Server(server, {
 setupSocket(io);
 
 app.use(
-  cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+  session({
+    secret: "secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: true,
+      sameSite: "none",
+    },
   })
 );
 
