@@ -32,6 +32,9 @@ export default function setupSocket(io) {
           "sender",
           "firstName lastName avatar"
         );
+        populated.chatId = chatId;
+
+        console.log(populated);
 
         io.to(chatId).emit("receiveMessage", populated);
 
@@ -63,6 +66,9 @@ export default function setupSocket(io) {
               "sender",
               "firstName lastName avatar"
             );
+            populatedBot.chatId = chatId;
+
+            console.log(populatedBot);
 
             io.to(chatId).emit("receiveMessage", populatedBot);
           } catch (err) {
